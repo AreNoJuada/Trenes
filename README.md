@@ -1,4 +1,11 @@
 # Trenes
+Documentación del Juego de Trenes
+
+Repositorio Git: https://github.com/AreNoJuada/Trenes.git
+
+Hecho por:
+👨‍💻 MATHYUS OROZCO 👨‍💻 JUAN DAVID ARENAS 👨‍💻 MIGUEL CORTES
+
 🎲 Juego de Trenes
 
 Este es un pequeño proyecto en C++ que implementa una versión simplificada del “Juego de Trenes”, un juego de mesa donde los jugadores compiten por completar trayectos entre ciudades utilizando cartas de colores y vagones.
