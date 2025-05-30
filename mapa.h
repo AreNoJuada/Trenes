@@ -19,7 +19,7 @@ struct Trayecto {
     int longitud;
     string color;
     bool completado;
-    int dueno; // 0 = no completado, 1-4 = jugador que lo completó
+    int dueno;
     vector<pair<int, int>> posiciones;
 };
 
@@ -27,7 +27,7 @@ class Mapa {
 private:
     static const int WIDTH = 19;
     static const int HEIGHT = 14;
-    int celdas[HEIGHT][WIDTH]; // Cambiado a int
+    int celdas[HEIGHT][WIDTH];
     map<char, pair<int, int>> posicionesCiudades;
     map<int, string> coloresTrayectos;
     vector<Trayecto> trayectosActivos;

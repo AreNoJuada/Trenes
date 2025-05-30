@@ -6,10 +6,6 @@
 #include <cctype>
 
 Mapa::Mapa() {
-    // Mapa inicial con ciudades como caracteres y colores como enteros
-    // ATENCIÓN: Cambia los valores de ciudades (letras) a enteros si es necesario,
-    // pero aquí se mantienen como char y se convierten a int al usar isalpha().
-    // Para evitar confusión, los colores siempre son enteros.
     int mapaInicial[HEIGHT][WIDTH] = {
         {0,0,0,'D',2,2,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,2,0,0,0,0,'J',1,1,'N',4,4,0,0,0},
@@ -45,23 +41,61 @@ Mapa::Mapa() {
         {6, "naranja"}
     };
 
-    // Inicializar trayectos con posiciones correctas (ejemplo, revisa que sean correctas para tu mapa)
+    // TRAYECTOS EXACTOS SEGÚN TU ESPECIFICACIÓN
     trayectosActivos = {
-        {'A', 'B', 4, "rojo", false, 0, {{0,7}, {1,7}, {2,7}, {3,7}}},
-        {'A', 'F', 5, "cafe", false, 0, {{4,7}, {5,7}, {6,7}, {7,7}, {8,7}}},
-        {'A', 'H', 3, "cafe", false, 0, {{0,7}, {0,6}, {0,5}, {0,4}}}, // ¡Revisa que las posiciones sean correctas!
-        {'B', 'I', 4, "rojo", false, 0, {{1,4}, {1,5}, {1,6}, {1,7}}},
-        {'C', 'M', 3, "verde", false, 0, {{2,13}, {3,13}, {4,13}, {5,13}}},
-        {'D', 'E', 2, "azul", false, 0, {{3,0}, {4,0}, {5,0}}},
-        {'E', 'O', 3, "verde", false, 0, {{5,3}, {5,4}, {5,5}, {5,6}}},
-        {'F', 'G', 2, "naranja", false, 0, {{5,7}, {5,8}, {5,9}, {5,10}, {5,11}}},
-        {'F', 'K', 4, "morado", false, 0, {{5,7}, {6,7}, {7,7}, {8,7}, {9,7}}},
-        {'G', 'L', 3, "azul", false, 0, {{5,11}, {6,11}, {7,11}, {8,11}}},
-        {'G', 'Q', 2, "azul", false, 0, {{5,11}, {5,12}, {5,13}}},
-        {'J', 'N', 2, "rojo", false, 0, {{10,1}, {11,1}, {12,1}}},
-        {'K', 'P', 4, "morado", false, 0, {{11,7}, {11,8}, {11,9}, {11,10}, {11,11}}},
-        {'L', 'Q', 3, "rojo", false, 0, {{11,11}, {12,11}, {13,11}, {14,11}}},
-        {'P', 'Q', 2, "morado", false, 0, {{15,7}, {15,8}, {15,9}, {15,10}, {15,11}}}
+        // D-E: 4 vagones azules
+        {'D', 'E', 4, "azul", false, 0, {{3,0}, {4,0}, {4,1}, {5,1}}},
+        
+        // E-F: 3 vagones morados  
+        {'E', 'F', 3, "morado", false, 0, {{5,3}, {5,4}, {5,5}}},
+        
+        // F-A: 5 vagones cafés
+        {'F', 'A', 5, "cafe", false, 0, {{0,7}, {1,7}, {2,7}, {3,7}, {4,7}}},
+        
+        // A-B: 3 vagones rojos
+        {'A', 'B', 3, "rojo", false, 0, {{0,4}, {0,5}, {0,6}}},
+        
+        // F-H: 2 vagones naranjas
+        {'F', 'H', 2, "naranja", false, 0, {{6,7}, {7,7}}},
+        
+        // H-K: 2 vagones cafés
+        {'H', 'K', 2, "cafe", false, 0, {{8,7}, {9,7}}},
+        
+        // K-L: 3 vagones naranjas
+        {'K', 'L', 3, "naranja", false, 0, {{11,7}, {11,8}, {11,9}}},
+        
+        // L-M: 4 vagones rojos (asumo que L-H era L-M)
+        {'L', 'M', 4, "rojo", false, 0, {{11,11}, {12,11}, {12,12}, {12,13}}},
+        
+        // K-P: 3 vagones morados
+        {'K', 'P', 3, "morado", false, 0, {{12,7}, {13,7}, {14,7}}},
+        
+        // P-Q: 3 vagones morados
+        {'P', 'Q', 3, "morado", false, 0, {{15,7}, {15,8}, {15,9}}},
+        
+        // Q-M: 4 vagones verdes
+        {'Q', 'M', 4, "verde", false, 0, {{15,11}, {15,12}, {14,13}, {13,13}}},
+        
+        // Q-S: 4 vagones azules
+        {'Q', 'S', 4, "azul", false, 0, {{16,11}, {17,11}, {18,10}, {18,9}}},
+        
+        // P-O: 3 vagones naranjas
+        {'P', 'O', 3, "naranja", false, 0, {{15,7}, {15,4}, {15,3}}},
+        
+        // O-R: 4 vagones verdes
+        {'O', 'R', 4, "verde", false, 0, {{16,3}, {17,3}, {18,4}, {18,5}}},
+        
+        // O-I: 4 vagones cafés
+        {'O', 'I', 4, "cafe", false, 0, {{15,3}, {14,4}, {13,4}, {12,4}}},
+        
+        // I-K: 4 vagones verdes
+        {'I', 'K', 4, "verde", false, 0, {{9,4}, {10,5}, {10,6}, {11,7}}},
+        
+        // O-N: 3 vagones morados
+        {'O', 'N', 3, "morado", false, 0, {{15,3}, {14,2}, {13,1}}},
+        
+        // N-J: 2 vagones rojos
+        {'N', 'J', 2, "rojo", false, 0, {{12,1}, {11,1}}}
     };
 }
 
@@ -71,7 +105,7 @@ void Mapa::mostrar() {
     for (const auto& t : trayectosActivos) {
         if (t.completado) {
             for (const auto& pos : t.posiciones) {
-                posicionesJugadores[pos] = t.dueno; // (x,y)
+                posicionesJugadores[pos] = t.dueno;
             }
         }
     }
@@ -90,12 +124,12 @@ void Mapa::mostrar() {
                 }
                 string color_code;
                 switch(c) {
-                    case 1: color_code = "\033[31m"; break; // rojo
-                    case 2: color_code = "\033[34m"; break; // azul
-                    case 3: color_code = "\033[32m"; break; // verde
-                    case 4: color_code = "\033[35m"; break; // morado
-                    case 5: color_code = "\033[33m"; break; // cafe
-                    case 6: color_code = "\033[38;5;208m"; break; // naranja
+                    case 1: color_code = "\033[31m"; break;
+                    case 2: color_code = "\033[34m"; break;
+                    case 3: color_code = "\033[32m"; break;
+                    case 4: color_code = "\033[35m"; break;
+                    case 5: color_code = "\033[33m"; break;
+                    case 6: color_code = "\033[38;5;208m"; break;
                     default: color_code = "\033[0m";
                 }
                 if (jugador > 0) {
